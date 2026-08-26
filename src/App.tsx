@@ -1,122 +1,77 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import {useEffect, useState} from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
+  const textos = [
+    'Estudante de Engenharia de Software - 3º Período',
+    'Desenvolvedora Back-End em formação',
+    'Java | Python | C',
+    'Criando projetos reais com tecnologia'
+  ]
+
+
+const [textoAtual, setTextoAtual] = useState('')
+const [indiceTexto, setIndiceTexto] = useState(0)
+const [indiceLetra, setIndiceLetra] = useState(0)
+const [apagando, setApagando] = useState(false)
+
+useEffect(()=>{
+  const texto = textos[indiceTexto]
+  const intervalo = setTimeout(() => {
+    if (!apagando) {
+      setTextoAtual (texto.substring(0, indiceLetra + 1))
+      setIndiceLetra(indiceLetra + 1)
+      if(indiceLetra === texto.length){
+        setTimeout(() => {
+          setApagando(true)
+        }, 1200)
+      }
+      }
+    else {
+      setTextoAtual(texto.substring(0, indiceLetra - 1))
+      setIndiceLetra(indiceLetra - 1)
+
+      if (indiceLetra === 0) {
+        setApagando(false)
+        setIndiceTexto((indiceTexto + 1) % textos.length)
+      }
+    }
+  }, apagando ? 50 : 100 )
+  return () => clearTimeout(intervalo)
+}, [indiceLetra, apagando, indiceTexto])
+return(
+  <>
+    <header className='cabecalho'>
+      <div className='logo'>
+        Lett.Dev
+      </div>
+
+      <nav className='menu'>
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Experiências</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
+    <main>
+      <section className='inicio' id='inicio'>
+        <div className="inicio-conteudo">
+          <p className='saudacao'>
+            Olá, eu sou a 
           </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
+          <h1>
+            Letícia!
+          </h1>
+          <h2>
+            &lt;{textoAtual}<span className='cursor'>|</span>&gt;
+          </h2>
         </div>
       </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    </main>
+  </>
+)
 }
 
 export default App
