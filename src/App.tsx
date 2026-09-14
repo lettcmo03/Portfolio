@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react'
+import conecta60 from './assets/conecta60.png'
 import './App.css'
 
 function App() {
@@ -67,21 +68,22 @@ return(
           <h2>
             &lt;{textoAtual}<span className='cursor'>|</span>&gt;
           </h2>
+          <a href="#projetos" className="botao-projetos">Ver projetos</a>
         </div>
       </section>
       <section className='sobre' id='sobre'>
         <div className="sobre-conteudo">
           <h2>Sobre Mim</h2>
-          <p>Sou estudante de Engenharia de Software e venho construindo minha experiência por meio de projetos academicos e pessoais</p>
-          <p>Tenho interesse principalmente em desenvolvimento de sistemas, com foco em back-end, e atualmente estudo e desenvolvo projetos utilizando tecnologias como: Java, Python, C, e atualmete estou me aprofundando no Front com HTML, CSS e React.</p>
-          <p>Gosto de transormar o que aprendo em projetos práticos buscando evoluir tanto na programação quanto na organização econstrução de soluções completas</p>
+          <p>Sou estudante de Engenharia de Software e venho construindo minha experiência por meio de projetos acadêmicos e pessoais.</p>
+          <p>Tenho interesse principalmente em desenvolvimento de sistemas, com foco em back-end. Atualmente, estudo e desenvolvo projetos utilizando tecnologias como Java, Python e C, além de estar me aprofundando em desenvolvimento front-end com HTML, CSS e React.</p>
+          <p>Gosto de transformar o que aprendo em projetos práticos, buscando evoluir tanto na programação quanto na organização e construção de soluções completas.</p>
         </div>
       </section>
       <section className='experiencias' id='projetos'>
         <h2>Minhas Experiências</h2>
         <div className="cards-experiencias">
           <div className="card">
-            <div className="card-imagem">/AQUI VAI ENTRAR A IMAGEM DO PROJETO/</div>
+            <div className="card-imagem"><img src={conecta60} alt="Projeto Conecta 60+" /></div>
             <h3>Conecta 60+</h3>
             <p>Projeto voltado para a inclusão e alfabetização digital de pessoas com 60 ou mais anos, desenvolvido em ambiente acadêmico.</p>
           </div>
@@ -97,6 +99,94 @@ return(
           </div>
         </div>
       </section>
+      <section className='habilidades' id='habilidades'>
+
+  <h2>Habilidades</h2>
+
+  <div className='habilidades-conteudo'>
+
+    <div className='habilidade flip-card'>
+  <div className='flip-card-conteudo'>
+
+    <div className='flip-card-frente'>
+      <h3>Java</h3>
+    </div>
+
+    <div className='flip-card-verso'>
+      <p>Java Completo + POO – Udemy</p>
+      <p>Projetos pessoais</p>
+    </div>
+
+  </div>
+</div>
+
+    <div className='habilidade flip-card'>
+  <div className='flip-card-conteudo'>
+
+    <div className='flip-card-frente'>
+      <h3>Python</h3>
+    </div>
+
+    <div className='flip-card-verso'>
+      <p>Curso em Vídeo — Mundos 1, 2 e 3</p>
+      <p>Projetos acadêmicos e pessoais</p>
+    </div>
+
+  </div>
+</div>
+
+<div className='habilidade flip-card'>
+      <div className='flip-card-conteudo'>
+
+        <div className='flip-card-frente'>
+          <h3>C</h3>
+        </div>
+
+        <div className='flip-card-verso'>
+          <p>ESW - Estruturas de Dados</p>
+          <p>Projetos acadêmicos</p>
+        </div>
+
+      </div>
+</div>
+
+<div className='habilidade flip-card'>
+      <div className='flip-card-conteudo'>
+
+        <div className='flip-card-frente'>
+          <h3>HTML / CSS</h3>
+        </div>
+
+        <div className='flip-card-verso'>
+          <p>Curso em Vídeo + Faculdade</p>
+          <p>Projetos acadêmicos e pessoais</p>
+        </div>
+
+      </div>
+</div>
+
+    <div className='habilidade flip-card'>
+  <div className='flip-card-conteudo'>
+
+    <div className='flip-card-frente'>
+      <h3>React</h3>
+    </div>
+
+    <div className='flip-card-verso'>
+      <p>Faculdade - Lab. Front</p>
+      <p>Portfolio</p>
+    </div>
+
+  </div>
+</div>
+
+    <div className='habilidade'>
+      <h3>Git & GitHub</h3>
+    </div>
+
+  </div>
+
+</section>
     </main>
   </>
 )

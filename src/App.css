@@ -86,6 +86,24 @@ body{
   min-height: 45px;
 }
 
+/* BOTÃO DE PROJETOS */
+
+.botao-projetos {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 24px;
+  border: 1px solid antiquewhite;
+  border-radius: 8px;
+  color: antiquewhite;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.botao-projetos:hover {
+  background-color: antiquewhite;
+  color: #0f0f0f;
+}
+
 /* CURSOR DE DIGITAÇÃO */
 
 .cursor{
@@ -154,18 +172,23 @@ body{
   padding: 20px;
 }
 
-.card-imagem{
+.card-imagem {
   width: 100%;
-  height: 100px;
-
+  height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
-
   background-color: #252525;
   border-radius: 8px;
-
   margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.card-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .card h3{
@@ -176,4 +199,109 @@ body{
 .card p{
   line-height: 1.6;
   opacity: 0.85;
+}
+
+/* HABILIDADES */
+
+.habilidades {
+  min-height: 70vh;
+  padding: 100px 10%;
+}
+
+.habilidades h2 {
+  color: antiquewhite;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.habilidades-conteudo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.habilidade {
+  background-color: #181818;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+}
+
+.habilidade h3 {
+  font-size: 1.3rem;
+  color: antiquewhite;
+}
+
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-conteudo {
+  position: relative;
+  width: 100%;
+  height: 140px;
+
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flip-card:hover .flip-card-conteudo {
+  transform: rotateY(180deg);
+}
+
+.flip-card-frente,
+.flip-card-verso {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  backface-visibility: hidden;
+
+  border-radius: 12px;
+}
+
+.flip-card-frente {
+  background-color: #181818;
+}
+
+.flip-card-verso {
+  transform: rotateY(180deg);
+  padding: 15px;
+}
+
+.flip-card-verso p {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+@media (max-width: 768px) {
+
+  .cards-experiencias {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .card-imagem {
+    width: 100%;
+    height: 200px;
+    background-color: #252525;
+  }
+
+  .card-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
 }
