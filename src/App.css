@@ -1,11 +1,11 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
-body{
+body {
   background-color: #0f0f0f;
   color: #ffffff;
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -13,7 +13,7 @@ body{
 
 /* CABEÇALHO */
 
-.cabecalho{
+.cabecalho {
   width: 100%;
   height: 75px;
 
@@ -32,17 +32,17 @@ body{
   z-index: 1000;
 }
 
-.logo{
+.logo {
   font-size: 1.4rem;
   font-weight: bold;
 }
 
-.menu{
+.menu {
   display: flex;
   gap: 30px;
 }
 
-.menu a{
+.menu a {
   color: #ffffff;
   text-decoration: none;
   font-size: 1rem;
@@ -50,13 +50,22 @@ body{
   transition: 0.3s;
 }
 
-.menu a:hover{
+.menu a:hover {
   opacity: 0.6;
+}
+
+.botao-menu {
+  display: none;
+  background: none;
+  border: none;
+  color: antiquewhite;
+  font-size: 1.8rem;
+  cursor: pointer;
 }
 
 /* INÍCIO */
 
-.inicio{
+.inicio {
   min-height: 100vh;
 
   display: flex;
@@ -65,22 +74,22 @@ body{
   padding: 100px 10%;
 }
 
-.inicio-conteudo{
+.inicio-conteudo {
   max-width: 850px;
 }
 
-.saudacao{
+.saudacao {
   font-size: 1.4rem;
   margin-bottom: 5px;
 }
 
-.inicio h1{
+.inicio h1 {
   color: antiquewhite;
   font-size: 4.5rem;
   margin-bottom: 15px;
 }
 
-.inicio h2{
+.inicio h2 {
   color: antiquewhite;
   font-size: 1.8rem;
   min-height: 45px;
@@ -106,24 +115,26 @@ body{
 
 /* CURSOR DE DIGITAÇÃO */
 
-.cursor{
+.cursor {
   animation: piscar 0.8s infinite;
 }
 
-@keyframes piscar{
+@keyframes piscar {
+
   0%,
-  50%{
+  50% {
     opacity: 1;
   }
+
   51%,
-  100%{
+  100% {
     opacity: 0;
   }
 }
 
 /* SOBRE */
 
-.sobre{
+.sobre {
   min-height: 70vh;
   padding: 100px 10%;
 
@@ -131,42 +142,79 @@ body{
   align-items: center;
 }
 
-.sobre-conteudo{
+.sobre-conteudo {
   max-width: 800px;
 }
 
-.sobre h2{
+.sobre h2 {
   color: antiquewhite;
   font-size: 2.5rem;
   margin-bottom: 30px;
 }
 
-.sobre p{
+.sobre p {
   font-size: 1.1rem;
   line-height: 1.8;
-  margin-bottom: 0.85;
+  margin-bottom: 0.85rem;
+}
+
+.rotina-estudos {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-estudos {
+  width: 100%;
+  max-width: 500px;
+  height: 280px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #181818;
+  border: 1px solid #252525;
+  border-radius: 12px;
+
+  color: #888888;
+}
+
+.legenda-video {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+  text-align: center;
+}
+
+.video-estudos video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 /* EXPERIENCIAS */
 
-.experiencias{
+.experiencias {
   min-height: 100vh;
   padding: 100px 10%;
 }
 
-.experiencias h2{
+.experiencias h2 {
   color: antiquewhite;
   font-size: 2.5rem;
   margin-bottom: 40px;
 }
 
-.cards-experiencias{
+.cards-experiencias {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
 
-.card{
+.card {
   background-color: #181818;
   border-radius: 12px;
   padding: 20px;
@@ -191,12 +239,12 @@ body{
   border-radius: 8px;
 }
 
-.card h3{
+.card h3 {
   margin-bottom: 12px;
   font-size: 1.4rem;
 }
 
-.card p{
+.card p {
   line-height: 1.6;
   opacity: 0.85;
 }
@@ -238,50 +286,161 @@ body{
 }
 
 .flip-card-conteudo {
-  position: relative;
   width: 100%;
-  height: 140px;
-
-  transform-style: preserve-3d;
-  transition: transform 0.6s;
+  height: auto;
+  transform: none;
 }
 
 .flip-card:hover .flip-card-conteudo {
-  transform: rotateY(180deg);
+  transform: none;
 }
 
 .flip-card-frente,
 .flip-card-verso {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  backface-visibility: hidden;
-
-  border-radius: 12px;
+  position: relative;
+  transform: none;
+  height: auto;
 }
 
 .flip-card-frente {
-  background-color: #181818;
+  padding: 20px;
 }
 
 .flip-card-verso {
-  transform: rotateY(180deg);
   padding: 15px;
 }
 
 .flip-card-verso p {
-  margin-top: 8px;
+  margin: 5px 0;
+}
+
+/* CONTATO */
+
+.redes-contato {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+  list-style: none;
+}
+
+.redes-contato a {
+  text-decoration: none;
+}
+
+.redes-contato li {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  background-color: #181818;
+  border-radius: 50px;
+
+  box-shadow: 0px 5px 25px rgb(61, 1, 61);
+
+  transition: 0.3s;
+}
+
+.redes-contato .icon {
+  color: antiquewhite;
+  font-size: 1.3rem;
+}
+
+.redes-contato .text {
+  position: absolute;
+  color: white;
+  font-size: 1rem;
+
+  transform: scale(0);
+}
+
+.redes-contato li:hover {
+  width: 170px;
+}
+
+.redes-contato li:hover .text {
+  transform: scale(1);
+  transition: 0.3s;
+}
+
+.redes-contato li:hover .icon {
+  transform: scale(0);
+  transition: 0.3s;
+}
+
+.redes-contato .text {
+  position: absolute;
+  color: white;
+  font-size: 1rem;
+  transform: scale(0);
+  transition: 0.3s;
+}
+
+.redes-contato li::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background-image: linear-gradient(45deg,
+      var(--cor1),
+      var(--cor2));
+
+  border-radius: 50px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.redes-contato li:hover::before {
+  opacity: 1;
+}
+
+.redes-contato .icon,
+.redes-contato .text {
+  z-index: 1;
+}
+
+/* FOOTER */
+
+.rodape {
+  padding: 25px 10%;
+  text-align: center;
+  border-top: 1px solid #252525;
+  color: #888888;
   font-size: 0.9rem;
-  line-height: 1.3;
+}
+
+.rodape p {
+  margin: 5px 0;
 }
 
 @media (max-width: 768px) {
+
+  .botao-menu {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .menu.menu-aberto {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 75px;
+      left: 0;
+      width: 100%;
+      padding: 25px 0;
+      gap: 20px;
+
+  background-color: rgba(15, 15, 15, 0.98);
+
+  align-items: center;
+  }
+
 
   .cards-experiencias {
     grid-template-columns: 1fr;
@@ -303,5 +462,40 @@ body{
     object-fit: cover;
     object-position: center;
   }
+
+  .habilidades-conteudo {
+  grid-template-columns: 1fr;
+}
+
+.habilidade {
+  width: 100%;
+}
+
+.flip-card-conteudo {
+  width: 100%;
+}
+
+.inicio {
+  justify-content: center;
+  text-align: center;
+  padding: 100px 5%;
+}
+
+.inicio-conteudo {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inicio h1 {
+  font-size: 3.8rem;
+}
+
+.inicio h2 {
+  width: 100%;
+  text-align: center;
+}
 
 }
